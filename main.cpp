@@ -4,13 +4,6 @@
 
 using namespace std;
 
-void convertUpperCase(char name[30]) {
-    char ch;
-    for (int i = 0; i < strlen(name); i++) {
-        ch = toupper(name[i]);
-    }
-}
-
 class Node {
 public:
     char name[30];
@@ -47,10 +40,11 @@ void contactList::takeInput() {
     char number[20];
     char c;
     do {
-        cout << "Enter Name: ";
-        cin >> name;
-        convertUpperCase(name);
-        cout << "Enter Phone Number: ";
+    	system("cls");
+        cout << "\nEnter Name: ";
+        cin.sync();
+        cin.getline(name,30);
+        cout << "\nEnter Phone Number: ";
         cin >> number;
         while (strlen(number) != 10) {
             cout << "Enter Valid Phone Number";
@@ -71,13 +65,14 @@ void contactList::takeInput() {
             ptr->nextLink = temp;
             temp->prevLink = ptr;
         }
-        cout << "Do you wish to continue?\n";
+        cout << "\nDo you wish to continue?\n";
         cin >> c;
     } while (c == 'y' || c == 'Y');
     
 }
 
 void contactList::display() {
+	system("cls");
     ptr = head;
     while (ptr != NULL)
     {
@@ -147,6 +142,7 @@ void contactList::deletecontact(char n[30]) {
 }
 
 void contactList::searchbyname(char p[30]) {
+	system("cls");
     ptr = head;
     while (ptr != NULL) {
         if (strcmp(p, ptr->name) == 0) {
@@ -159,6 +155,7 @@ void contactList::searchbyname(char p[30]) {
 }
 
 void contactList::searchbynumber(char num[20]) {
+	system("cls");
     ptr = head;
     while (ptr != NULL) {
         if (strcmp(num, ptr->number) == 0) {
@@ -171,6 +168,7 @@ void contactList::searchbynumber(char num[20]) {
 }
 
 void contactList::update(char a[30]) {
+	system("cls");
     char choice;
     int n;
     ptr = head;
@@ -212,36 +210,42 @@ int main()
     char name[30];
     char number[20];
     cout << "\t\t**********\n\t\tPHONE BOOK\n\t\t**********\n\n";
-    cout << "Developed by Nitin Nishad\n***************************\n";
+    cout << "Developed by Nitin Nishad\n*************************\n";
     cout << "\n\nEnter Username\n";
     cin.getline(name, 30);
     cout << "\n\nHello " << name<<", Let's get started.\n\n";
+    system("cls");
     do {
-        cout << "\n\n1. Add New Contact.\n2. Update Existing Contact.\n3. Display All Contacts.\n4. Search Contact\n5. Delete a Contact.\n6. Exit.\n\n";
+    	cout << "\t\t**********\n\t\tPHONE BOOK\n\t\t**********\n\n";
+        cout << "\n1. Add New Contact.\n2. Update Existing Contact.\n3. Display All Contacts.\n4. Search Contact\n5. Delete a Contact.\n6. Exit.\n\n";
         cin >> choice;
         switch (choice)
         {
         case 1:
+        	system("cls");
             c.insert();
             c.sort();
             break;
 
         case 2:
+        	system("cls");
             cout << "Enter Name: ";
             cin.sync();
             cin.getline(name, 30);
-            convertUpperCase(name);
             c.update(name);
             c.sort();
             break;
 
         case 3:
+        	system("cls");
             c.sort();
             c.display();
             break;
 
         case 4:
+        	system("cls");
             do {
+            	system("cls");
                 cout << "1. Search by Name.\n2. Search by Phone Number.\n";
                 cin >> ch;
                 switch (ch) {
@@ -264,6 +268,7 @@ int main()
             break;
 
         case 5:
+        	system("cls");
                 cout << "Enter Name to delete contact: ";
                 cin.sync();
                 cin.getline(name, 30);
