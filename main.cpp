@@ -210,7 +210,7 @@ int main()
     char name[30];
     char number[20];
     cout << "\t\t**********\n\t\tPHONE BOOK\n\t\t**********\n\n";
-    cout << "Developed by Nitin Nishad\n*************************\n";
+    cout << "Developed by Nitin Nishad,Nikhil Maurya And Shivam Mishra\n*************************\n";
     cout << "\n\nEnter Username\n";
     cin.getline(name, 30);
     cout << "\n\nHello " << name<<", Let's get started.\n\n";
